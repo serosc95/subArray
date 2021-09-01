@@ -28,11 +28,12 @@ for x in range(datos.shape[0]):
         elif contador == 52:
             print(subarray)
             data.append({'id': i, 'array': subarray.copy()})
-            df = pd.DataFrame(data)
-            df = df[['id', 'array']]
-            df.to_excel(writer, sheet_name='Hoja1', index=False)
-            wb.save('database.xlsx')
             i = i + 1
             subarray.clear()
     except:
         break
+
+df = pd.DataFrame(data)
+df = df[['id', 'array']]
+df.to_excel(writer, sheet_name='Hoja1', index=False)
+wb.save('database.xlsx')
